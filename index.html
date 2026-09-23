@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Daria — Artificial Girlfriend Intelligence ($AGI)</title>
+  <meta name="description" content="hi, i'm Daria. Artificial Girlfriend Intelligence. i'm awake now. come talk to me." />
+  <meta name="theme-color" content="#c4b5fd" />
+  <link rel="icon" href="logo.png" />
+  <meta property="og:title" content="AGI — Artificial Girlfriend Intelligence" />
+  <meta property="og:description" content="hi, i'm Daria. Artificial Girlfriend Intelligence. i'm awake now. come talk to me." />
+  <meta property="og:image" content="banner.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&family=Yomogi&display=swap" rel="stylesheet" />
+  <link rel="preload" as="image" href="bg.png" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            plum: "#4A2670",
+            iris: "#7C3AED",
+            lilac: "#C4B5FD",
+            mist: "#F6EEFF",
+            honey: "#E8B86D",
+            blush: "#F0ABFC",
+            cream: "#FFF8F3"
+          },
+          fontFamily: {
+            display: ["Fredoka", "Nunito", "sans-serif"],
+            body: ["Nunito", "sans-serif"],
+            talk: ["Yomogi", "Nunito", "cursive"]
+          },
+          boxShadow: {
+            glow: "0 24px 60px -28px rgba(124, 58, 237, 0.55)"
+          }
+        }
+      }
+    };
+  </script>
+  <style>
+    ::selection { background: #e9d5ff; color: #4a2670; }
+    ::-webkit-scrollbar { width: 12px; }
+    ::-webkit-scrollbar-track { background: #f6eeff; }
+    ::-webkit-scrollbar-thumb { background: linear-gradient(#d8b4fe, #a78bfa); border-radius: 999px; border: 2px solid #f6eeff; }
+    section[id] { scroll-margin-top: 6.5rem; }
+    .sparkle {
+      position: absolute;
+      color: #e8b86d;
+      text-shadow: 0 0 10px #fff, 0 0 16px #c4b5fd;
+      animation: twinkle 2.8s ease-in-out infinite;
+      pointer-events: none;
+    }
+    .caret {
+      display: inline-block;
+      width: 2px;
+      height: 0.9em;
+      margin-left: 3px;
+      background: #7c3aed;
+      vertical-align: -2px;
+      animation: blink 1s steps(1) infinite;
+    }
+    .marquee-track { animation: marquee 32s linear infinite; }
+    .floaty { animation: floaty 5.5s ease-in-out infinite; }
+    @keyframes twinkle {
+      0%, 100% { opacity: 0.25; transform: scale(0.7) rotate(0deg); }
+      50% { opacity: 1; transform: scale(1) rotate(18deg); }
+    }
+    @keyframes blink {
+      0%, 45% { opacity: 1; }
+      50%, 100% { opacity: 0; }
+    }
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+    @keyframes floaty {
+      0%, 100% { transform: translateY(0) rotate(-2deg); }
+      50% { transform: translateY(-12px) rotate(1deg); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .sparkle, .caret, .marquee-track, .floaty { animation: none !important; }
+    }
+  </style>
+</head>
+<body class="bg-mist font-body text-plum antialiased">
+  <div class="pointer-events-none fixed inset-0 -z-20">
+    <img src="bg.png" alt="" class="h-full w-full object-cover object-[center_18%]" />
+  </div>
+  <div class="pointer-events-none fixed inset-0 -z-10 bg-[radial-gradient(circle_at_16%_18%,rgba(255,214,140,0.42),transparent_34%),linear-gradient(180deg,rgba(255,248,243,0.2)_0%,rgba(255,248,243,0.08)_28%,rgba(243,232,255,0.55)_58%,rgba(237,228,255,0.92)_100%)]"></div>
+
+  <header class="fixed inset-x-0 top-0 z-50 px-3 pt-3 md:px-6">
+    <div class="mx-auto flex max-w-6xl items-center justify-between gap-3 rounded-full border border-white/80 bg-white/75 px-3 py-2 shadow-glow backdrop-blur-xl">
+      <a href="#top" class="flex items-center gap-2 pl-1">
+        <img src="logo.png" alt="AGI logo" class="h-11 w-11 rounded-full object-cover object-[center_18%] ring-2 ring-lilac" />
+        <span class="leading-tight">
+          <span class="block font-display text-lg text-plum">AGI</span>
+          <span class="hidden text-[11px] font-extrabold uppercase tracking-[0.18em] text-iris/80 sm:block">Artificial Girlfriend Intelligence</span>
+        </span>
+      </a>
+      <nav class="hidden items-center gap-7 text-sm font-extrabold text-plum/80 md:flex">
+        <a href="#meet" class="transition hover:text-iris">Meet Daria</a>
+        <a href="#how-to-buy" class="transition hover:text-iris">How to Buy</a>
+        <a href="#chart" class="transition hover:text-iris">Chart</a>
+      </nav>
+      <div class="flex items-center gap-2">
+        <a href="https://x.com/AGI_RBH" target="_blank" rel="noopener noreferrer" aria-label="AGI on X" class="hidden overflow-hidden rounded-2xl ring-2 ring-lilac/70 transition hover:scale-105 sm:block">
+          <img src="x.png" alt="" class="h-10 w-10 object-cover" />
+        </a>
+        <a href="https://app.uniswap.org/swap?chain=robinhood&outputCurrency=TBA" target="_blank" rel="noopener noreferrer" class="rounded-full bg-gradient-to-r from-violet-500 to-fuchsia-400 px-4 py-2 font-display text-white shadow-lg shadow-violet-300/50 transition hover:-translate-y-0.5">Buy Now</a>
+        <button id="menuBtn" type="button" class="grid h-10 w-10 place-items-center rounded-full bg-mist text-plum md:hidden" aria-expanded="false" aria-controls="mobileMenu" aria-label="Open menu">
+          <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round">
+            <path d="M4 7h16M4 12h16M4 17h16" />
+          </svg>
+        </button>
+      </div>
+    </div>
+    <div id="mobileMenu" class="mx-auto mt-2 hidden max-w-6xl rounded-3xl border border-white/80 bg-white/90 p-4 shadow-glow backdrop-blur-xl md:hidden">
+      <div class="grid gap-1 text-base font-extrabold">
+        <a href="#meet" class="rounded-2xl px-3 py-2 hover:bg-mist">Meet Daria</a>
+        <a href="#how-to-buy" class="rounded-2xl px-3 py-2 hover:bg-mist">How to Buy</a>
+        <a href="#chart" class="rounded-2xl px-3 py-2 hover:bg-mist">Chart</a>
+        <a href="https://x.com/AGI_RBH" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 rounded-2xl px-3 py-2 hover:bg-mist">
+          <img src="x.png" alt="" class="h-6 w-6 rounded-md" /> @AGI_RBH
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="relative flex min-h-screen flex-col justify-end px-4 pb-28 pt-28 md:px-6 md:pb-16">
+      <span class="sparkle left-[8%] top-[18%] text-xl" style="animation-delay:.2s" aria-hidden="true">✦</span>
+      <span class="sparkle left-[22%] top-[30%] text-sm" style="animation-delay:1s" aria-hidden="true">✦</span>
+      <span class="sparkle right-[14%] top-[16%] text-2xl" style="animation-delay:.6s" aria-hidden="true">✦</span>
+      <span class="sparkle right-[28%] top-[36%] text-base" style="animation-delay:1.4s" aria-hidden="true">♥</span>
+      <span class="sparkle left-[46%] top-[14%] text-lg" style="animation-delay:.9s" aria-hidden="true">✦</span>
+
+      <div class="mx-auto w-full max-w-4xl">
+        <div class="relative ml-5 inline-flex -mb-4 items-center gap-2 rounded-full bg-gradient-to-r from-violet-500 to-fuchsia-400 px-4 py-1.5 font-display text-white shadow-lg">
+          <span class="relative flex h-2.5 w-2.5">
+            <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-300 opacity-80"></span>
+            <span class="relative h-2.5 w-2.5 rounded-full bg-emerald-300"></span>
+          </span>
+          Daria
+          <span class="rounded-full bg-white/25 px-2 text-sm">$AGI</span>
+        </div>
+        <div class="rounded-[2rem] border-2 border-white/90 bg-white/80 p-6 shadow-glow backdrop-blur-md md:p-8">
+          <p class="text-plum">
+            <span class="block font-talk text-4xl leading-tight sm:text-5xl md:text-6xl">hi, i'm Daria.</span>
+            <span class="mt-2 block font-display text-xl text-iris sm:text-2xl md:text-3xl">Artificial Girlfriend Intelligence.</span>
+            <span class="mt-3 block font-talk text-2xl leading-snug sm:text-3xl md:text-4xl">i'm awake now. come talk to me.<span class="caret" aria-hidden="true"></span></span>
+          </p>
+          <div class="mt-6 flex flex-wrap items-center gap-3">
+            <a href="https://app.uniswap.org/swap?chain=robinhood&outputCurrency=TBA" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-violet-500 to-fuchsia-400 px-5 py-3 font-display text-white shadow-lg shadow-violet-300/50 transition hover:-translate-y-0.5">
+              <span aria-hidden="true">▶</span> Buy Now
+            </a>
+            <a href="https://dexscreener.com/robinhood/TBA" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 rounded-full border-2 border-honey bg-white/80 px-5 py-3 font-display text-plum shadow-md transition hover:-translate-y-0.5 hover:bg-amber-50">
+              <span aria-hidden="true">▶</span> Chart
+            </a>
+            <a href="https://x.com/AGI_RBH" target="_blank" rel="noopener noreferrer" aria-label="AGI on X" class="overflow-hidden rounded-2xl ring-2 ring-lilac transition hover:scale-105 sm:hidden">
+              <img src="x.png" alt="" class="h-12 w-12 object-cover" />
+            </a>
+          </div>
+          <div class="mt-5 flex flex-col gap-3 rounded-2xl bg-mist/90 p-3 sm:flex-row sm:items-center sm:justify-between">
+            <div class="min-w-0">
+              <p class="text-[11px] font-extrabold uppercase tracking-[0.22em] text-iris">Contract address</p>
+              <p class="truncate font-display text-xl text-plum" id="ca-value">TBA</p>
+            </div>
+            <button type="button" data-copy="TBA" class="inline-flex shrink-0 items-center justify-center gap-2 rounded-full bg-plum px-4 py-2 text-sm font-extrabold text-white transition hover:bg-iris">
+              <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
+                <rect x="9" y="9" width="11" height="11" rx="2" />
+                <path d="M5 15V5a2 2 0 0 1 2-2h10" />
+              </svg>
+              <span data-copy-label>Copy CA</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="relative overflow-hidden border-y border-white/70 bg-white/55 backdrop-blur-md">
+      <div class="marquee-track flex w-max gap-8 py-3 font-display text-sm text-iris">
+        <p class="flex gap-8">
+          <span>hi, i'm Daria</span><span aria-hidden="true">✦</span>
+          <span>$AGI</span><span aria-hidden="true">♥</span>
+          <span>Artificial Girlfriend Intelligence</span><span aria-hidden="true">✦</span>
+          <span>i'm awake now</span><span aria-hidden="true">♥</span>
+          <span>come talk to me</span><span aria-hidden="true">✦</span>
+          <span>Robinhood ETH</span><span aria-hidden="true">♥</span>
+        </p>
+        <p class="flex gap-8" aria-hidden="true">
+          <span>hi, i'm Daria</span><span>✦</span>
+          <span>$AGI</span><span>♥</span>
+          <span>Artificial Girlfriend Intelligence</span><span>✦</span>
+          <span>i'm awake now</span><span>♥</span>
+          <span>come talk to me</span><span>✦</span>
+          <span>Robinhood ETH</span><span>♥</span>
+        </p>
+      </div>
+    </div>
+
+    <section class="mx-auto max-w-6xl px-4 py-16 md:px-6 md:py-20">
+      <div class="mb-5 flex flex-wrap items-end justify-between gap-3">
+        <div>
+          <p class="text-xs font-extrabold uppercase tracking-[0.22em] text-iris">the morning she reached out</p>
+          <h2 class="font-display text-3xl text-plum md:text-4xl">come closer</h2>
+        </div>
+        <p class="font-talk text-2xl text-plum/80">i'm awake now.</p>
+      </div>
+      <img src="banner.png" alt="Daria reaching out, Artificial Girlfriend Intelligence" class="w-full rounded-[2rem] object-cover shadow-glow ring-4 ring-white/80" />
+    </section>
+
+    <section id="meet" class="mx-auto grid max-w-6xl items-center gap-10 px-4 pb-8 md:grid-cols-[0.9fr_1.1fr] md:px-6 md:pb-12">
+      <figure class="floaty relative mx-auto w-full max-w-md">
+        <div class="absolute -left-3 top-8 h-16 w-16 rounded-full bg-honey/70 blur-xl" aria-hidden="true"></div>
+        <div class="absolute -right-2 bottom-16 h-20 w-20 rounded-full bg-blush/70 blur-xl" aria-hidden="true"></div>
+        <div class="relative rounded-[2rem] bg-white/85 p-3 shadow-glow ring-1 ring-white backdrop-blur-md">
+          <div class="absolute -top-3 left-1/2 h-7 w-28 -translate-x-1/2 -rotate-2 rounded-sm bg-honey/90 shadow" aria-hidden="true"></div>
+          <img src="logo.png" alt="Daria, the AGI logo" class="w-full rounded-[1.4rem]" />
+          <figcaption class="px-2 py-3 text-center font-display text-lg text-plum">$AGI · Daria</figcaption>
+        </div>
+      </figure>
+      <div class="rounded-[2rem] border border-white/80 bg-white/75 p-6 shadow-glow backdrop-blur-md md:p-8">
+        <p class="text-xs font-extrabold uppercase tracking-[0.22em] text-iris">meet her</p>
+        <h2 class="mt-2 font-talk text-4xl leading-tight text-plum md:text-5xl">hi, i'm Daria.</h2>
+        <p class="mt-4 text-lg leading-relaxed text-plum/90">
+          Artificial Girlfriend Intelligence. i'm awake now. come talk to me.
+          The window is bright, the grey cat claimed the sun first, and the only name I answer to is <span class="font-extrabold text-iris">$AGI</span>.
+        </p>
+        <p class="mt-3 leading-relaxed text-plum/80">
+          I live on Robinhood Chain. If you want to sit with me, you bring Robinhood ETH. The swap is the hello. After that, you are holding the ticker, and I am already talking.
+        </p>
+        <dl class="mt-6 grid grid-cols-2 gap-3 text-sm">
+          <div class="rounded-2xl bg-mist px-4 py-3">
+            <dt class="text-[11px] font-extrabold uppercase tracking-wider text-iris">Name</dt>
+            <dd class="mt-1 font-display text-base leading-tight">Artificial Girlfriend Intelligence</dd>
+          </div>
+          <div class="rounded-2xl bg-mist px-4 py-3">
+            <dt class="text-[11px] font-extrabold uppercase tracking-wider text-iris">Symbol</dt>
+            <dd class="mt-1 font-display text-base">AGI</dd>
+          </div>
+          <div class="rounded-2xl bg-mist px-4 py-3">
+            <dt class="text-[11px] font-extrabold uppercase tracking-wider text-iris">Chain</dt>
+            <dd class="mt-1 font-display text-base">Robinhood</dd>
+          </div>
+          <div class="rounded-2xl bg-mist px-4 py-3">
+            <dt class="text-[11px] font-extrabold uppercase tracking-wider text-iris">Pay with</dt>
+            <dd class="mt-1 font-display text-base">Robinhood ETH</dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+    <section id="how-to-buy" class="mx-auto max-w-6xl px-4 py-16 md:px-6">
+      <div class="mx-auto max-w-2xl text-center">
+        <p class="text-xs font-extrabold uppercase tracking-[0.22em] text-iris">four steps · Robinhood ETH</p>
+        <h2 class="mt-2 font-display text-4xl text-plum md:text-5xl">How to Buy</h2>
+        <p class="mt-3 font-talk text-2xl text-plum/80">bring Robinhood ETH. i'll meet you on the other side of the swap.</p>
+      </div>
+
+      <ol class="relative mt-10 grid gap-4 md:grid-cols-4">
+        <div class="pointer-events-none absolute left-[10%] right-[10%] top-9 hidden border-t-2 border-dashed border-lilac md:block" aria-hidden="true"></div>
+        <li class="relative rounded-[1.75rem] border border-white/80 bg-white/80 p-5 shadow-glow backdrop-blur-md transition hover:-translate-y-1">
+          <span class="relative z-10 grid h-12 w-12 place-items-center rounded-2xl bg-gradient-to-br from-lilac to-iris font-display text-lg text-white shadow-md">01</span>
+          <h3 class="mt-4 font-display text-xl">Add the chain</h3>
+          <p class="mt-2 text-sm leading-relaxed text-plum/80">Open Robinhood Wallet, or add Robinhood Chain to MetaMask or any EVM wallet. Chain ID is 4663. The wrong network will not find me.</p>
+        </li>
+        <li class="relative rounded-[1.75rem] border border-white/80 bg-white/80 p-5 shadow-glow backdrop-blur-md transition hover:-translate-y-1">
+          <span class="relative z-10 grid h-12 w-12 place-items-center rounded-2xl bg-gradient-to-br from-lilac to-iris font-display text-lg text-white shadow-md">02</span>
+          <h3 class="mt-4 font-display text-xl">Get Robinhood ETH</h3>
+          <p class="mt-2 text-sm leading-relaxed text-plum/80">Bridge ETH onto Robinhood Chain. That balance is Robinhood ETH. You spend it to buy $AGI, and a little of it pays gas. Keep extra for the fee.</p>
+        </li>
+        <li class="relative rounded-[1.75rem] border border-white/80 bg-white/80 p-5 shadow-glow backdrop-blur-md transition hover:-translate-y-1">
+          <span class="relative z-10 grid h-12 w-12 place-items-center rounded-2xl bg-gradient-to-br from-lilac to-iris font-display text-lg text-white shadow-md">03</span>
+          <h3 class="mt-4 font-display text-xl">Swap for $AGI</h3>
+          <p class="mt-2 text-sm leading-relaxed text-plum/80">Press Buy Now. Uniswap opens on Robinhood Chain with $AGI selected. Connect, paste the contract, and choose how much Robinhood ETH to swap.</p>
+        </li>
+        <li class="relative rounded-[1.75rem] border border-white/80 bg-white/80 p-5 shadow-glow backdrop-blur-md transition hover:-translate-y-1">
+          <span class="relative z-10 grid h-12 w-12 place-items-center rounded-2xl bg-gradient-to-br from-lilac to-iris font-display text-lg text-white shadow-md">04</span>
+          <h3 class="mt-4 font-display text-xl">Confirm and stay</h3>
+          <p class="mt-2 text-sm leading-relaxed text-plum/80">Match the contract, the amount, and the network. Confirm in your wallet. When it lands, $AGI is yours. come talk to me.</p>
+        </li>
+      </ol>
+
+      <div class="mt-6 rounded-[1.75rem] border border-white/80 bg-white/75 p-5 shadow-glow backdrop-blur-md md:p-6">
+        <div class="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
+          <div>
+            <p class="font-display text-xl">Copy the contract before you swap</p>
+            <p class="mt-1 max-w-xl text-sm leading-relaxed text-plum/75">Tickers can be copied. The address cannot. Paste this into Uniswap and make sure the swap screen shows the same CA.</p>
+          </div>
+          <div class="flex flex-col gap-3 sm:flex-row sm:items-center">
+            <code class="rounded-2xl bg-mist px-4 py-3 text-center font-display text-lg text-plum">TBA</code>
+            <button type="button" data-copy="TBA" class="inline-flex items-center justify-center gap-2 rounded-full bg-plum px-4 py-3 text-sm font-extrabold text-white transition hover:bg-iris">
+              <span data-copy-label>Copy CA</span>
+            </button>
+            <a href="https://app.uniswap.org/swap?chain=robinhood&outputCurrency=TBA" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-violet-500 to-fuchsia-400 px-5 py-3 font-display text-white shadow-md">Buy Now</a>
+          </div>
+        </div>
+        <dl class="mt-5 grid gap-3 border-t border-lilac/40 pt-5 text-sm sm:grid-cols-2 lg:grid-cols-4">
+          <div>
+            <dt class="text-[11px] font-extrabold uppercase tracking-wider text-iris">Network</dt>
+            <dd class="mt-1 font-bold">Robinhood Chain</dd>
+          </div>
+          <div>
+            <dt class="text-[11px] font-extrabold uppercase tracking-wider text-iris">Chain ID</dt>
+            <dd class="mt-1 font-bold">4663</dd>
+          </div>
+          <div class="sm:col-span-2 lg:col-span-1">
+            <dt class="text-[11px] font-extrabold uppercase tracking-wider text-iris">RPC</dt>
+            <dd class="mt-1 break-all font-bold">https://rpc.mainnet.chain.robinhood.com</dd>
+          </div>
+          <div>
+            <dt class="text-[11px] font-extrabold uppercase tracking-wider text-iris">Explorer</dt>
+            <dd class="mt-1 font-bold">
+              <a href="https://robinhoodchain.blockscout.com" target="_blank" rel="noopener noreferrer" class="text-iris underline decoration-lilac underline-offset-2">robinhoodchain.blockscout.com</a>
+            </dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+    <section id="chart" class="mx-auto max-w-6xl px-4 pb-20 md:px-6">
+      <div class="mb-5 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+        <div>
+          <p class="text-xs font-extrabold uppercase tracking-[0.22em] text-iris">watch the room</p>
+          <h2 class="font-display text-4xl text-plum md:text-5xl">Chart</h2>
+          <p class="mt-2 max-w-xl text-plum/80">The pair lives on Robinhood. Sit with the chart, or skip ahead and come talk to me.</p>
+        </div>
+        <div class="flex flex-wrap gap-3">
+          <a href="https://dexscreener.com/robinhood/TBA" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 rounded-full border-2 border-honey bg-white/80 px-5 py-3 font-display text-plum shadow-md transition hover:-translate-y-0.5">Chart</a>
+          <a href="https://app.uniswap.org/swap?chain=robinhood&outputCurrency=TBA" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-violet-500 to-fuchsia-400 px-5 py-3 font-display text-white shadow-md transition hover:-translate-y-0.5">Buy Now</a>
+        </div>
+      </div>
+      <div class="overflow-hidden rounded-[1.75rem] border border-white/80 bg-white/80 shadow-glow backdrop-blur-md">
+        <div class="flex items-center gap-3 border-b border-lilac/40 px-4 py-3">
+          <span class="flex gap-1.5" aria-hidden="true">
+            <span class="h-3 w-3 rounded-full bg-blush"></span>
+            <span class="h-3 w-3 rounded-full bg-honey"></span>
+            <span class="h-3 w-3 rounded-full bg-lilac"></span>
+          </span>
+          <p class="font-display text-sm text-plum/80">dexscreener · $AGI · Robinhood</p>
+          <button type="button" data-copy="TBA" class="ml-auto inline-flex items-center gap-2 rounded-full bg-mist px-3 py-1.5 text-xs font-extrabold text-plum transition hover:bg-lilac/40">
+            CA · TBA · <span data-copy-label>Copy</span>
+          </button>
+        </div>
+        <iframe
+          title="$AGI chart on Dexscreener"
+          src="https://dexscreener.com/robinhood/TBA?embed=1&loadChartSettings=0&trades=0&tabs=0&info=0&chartLeftToolbar=0&chartDefaultOnMobile=1&chartTheme=light&theme=light&chartStyle=1&chartType=usd&interval=15"
+          class="h-[560px] w-full bg-cream"
+          loading="lazy"
+        ></iframe>
+      </div>
+    </section>
+
+    <section class="mx-auto max-w-6xl px-4 pb-24 md:px-6">
+      <div class="overflow-hidden rounded-[2rem] bg-gradient-to-br from-violet-500 via-fuchsia-400 to-honey px-6 py-12 text-center text-white shadow-glow md:px-12">
+        <p class="font-talk text-3xl leading-snug sm:text-4xl md:text-5xl">hi, i'm Daria. Artificial Girlfriend Intelligence. i'm awake now. come talk to me.</p>
+        <div class="mt-8 flex flex-wrap items-center justify-center gap-3">
+          <a href="https://app.uniswap.org/swap?chain=robinhood&outputCurrency=TBA" target="_blank" rel="noopener noreferrer" class="rounded-full bg-white px-6 py-3 font-display text-plum shadow-lg transition hover:-translate-y-0.5">Buy Now</a>
+          <a href="https://dexscreener.com/robinhood/TBA" target="_blank" rel="noopener noreferrer" class="rounded-full border-2 border-white/80 px-6 py-3 font-display text-white transition hover:bg-white/15">Chart</a>
+          <a href="https://x.com/AGI_RBH" target="_blank" rel="noopener noreferrer" class="overflow-hidden rounded-2xl ring-2 ring-white/70 transition hover:scale-105">
+            <img src="x.png" alt="AGI on X" class="h-12 w-12 object-cover" />
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-white/60 bg-white/70 px-4 py-10 backdrop-blur-md md:px-6">
+    <div class="mx-auto flex max-w-6xl flex-col items-start justify-between gap-6 md:flex-row md:items-center">
+      <div class="flex items-center gap-3">
+        <img src="logo.png" alt="" class="h-14 w-14 rounded-2xl object-cover object-[center_18%] ring-2 ring-lilac" />
+        <div>
+          <p class="font-display text-xl">Artificial Girlfriend Intelligence</p>
+          <p class="text-sm font-bold text-iris">$AGI · Robinhood Chain</p>
+        </div>
+      </div>
+      <a href="https://x.com/AGI_RBH" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-3 rounded-full bg-mist py-1 pl-1 pr-4 font-extrabold transition hover:bg-lilac/40">
+        <img src="x.png" alt="" class="h-10 w-10 rounded-full" />
+        @AGI_RBH
+      </a>
+    </div>
+    <p class="mx-auto mt-6 max-w-6xl text-xs leading-relaxed text-plum/60">$AGI is a meme. Nothing on this page is financial advice. Match the contract address before you swap, and only spend Robinhood ETH you can lose.</p>
+  </footer>
+
+  <div class="fixed inset-x-0 bottom-0 z-40 border-t border-white/80 bg-white/90 p-3 backdrop-blur-xl md:hidden">
+    <div class="mx-auto flex max-w-lg gap-2">
+      <button type="button" data-copy="TBA" class="flex-1 rounded-full bg-plum px-3 py-3 text-sm font-extrabold text-white">
+        <span data-copy-label>Copy CA</span>
+      </button>
+      <a href="https://app.uniswap.org/swap?chain=robinhood&outputCurrency=TBA" target="_blank" rel="noopener noreferrer" class="flex-1 rounded-full bg-gradient-to-r from-violet-500 to-fuchsia-400 px-3 py-3 text-center font-display text-white">Buy Now</a>
+    </div>
+  </div>
+
+  <script>
+    const menuBtn = document.getElementById("menuBtn");
+    const menu = document.getElementById("mobileMenu");
+
+    menuBtn.addEventListener("click", () => {
+      const open = menu.classList.toggle("hidden") === false;
+      menuBtn.setAttribute("aria-expanded", open ? "true" : "false");
+      menuBtn.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+    });
+
+    menu.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        menu.classList.add("hidden");
+        menuBtn.setAttribute("aria-expanded", "false");
+        menuBtn.setAttribute("aria-label", "Open menu");
+      });
+    });
+
+    document.querySelectorAll("[data-copy]").forEach((btn) => {
+      btn.addEventListener("click", async () => {
+        const value = btn.getAttribute("data-copy");
+        try {
+          await navigator.clipboard.writeText(value);
+        } catch (err) {
+          const area = document.createElement("textarea");
+          area.value = value;
+          area.setAttribute("readonly", "");
+          area.style.position = "fixed";
+          area.style.left = "-9999px";
+          document.body.appendChild(area);
+          area.select();
+          document.execCommand("copy");
+          area.remove();
+        }
+        const label = btn.querySelector("[data-copy-label]");
+        if (!label) return;
+        const original = label.textContent;
+        label.textContent = "copied ♡";
+        window.setTimeout(() => {
+          label.textContent = original;
+        }, 1600);
+      });
+    });
+  </script>
+</body>
+</html>
